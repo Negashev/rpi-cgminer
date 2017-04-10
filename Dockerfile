@@ -18,11 +18,14 @@ RUN apt-get -y install curl
 
 RUN make
 
-ADD ./run.sh ./run.sh
-
-RUN chmod +x ./run.sh
 ENV USER Negash.helper
 ENV PASS 0
 ENV URL stratum+tcp://stratum.slushpool.com:3333
+
 ENTRYPOINT ["bash"]
+
+ADD ./run.sh ./run.sh
+
+RUN chmod +x ./run.sh
+
 CMD ["/cgminer/cgminer-4.9.2/run.sh"]
